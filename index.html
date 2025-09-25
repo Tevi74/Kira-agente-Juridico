@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<li>Converse com a Kira e gere insights.</li>
+</ol>
+</section>
+
+
+<section id="app" class="container app card">
+<div class="app-header">
+<h3>Área do usuário</h3>
+<span id="statusAssinatura" class="status badge">Offline</span>
+</div>
+<div class="app-grid">
+<div class="pane">
+<h4>Upload de documentos</h4>
+<input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" />
+<button class="btn" id="btnUpload">Enviar</button>
+<p class="hint">Permitidos: PDF, DOC/DOCX, imagens. Máx 10MB por arquivo.</p>
+<div id="uploadsList" class="list"></div>
+</div>
+<div class="pane">
+<h4>Chat Kira (placeholder)</h4>
+<div id="chatBox" class="chat"></div>
+<div class="chat-input">
+<input id="chatMsg" placeholder="Faça uma pergunta à Kira..." />
+<button class="btn" id="btnSend">Enviar</button>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="faq" class="container">
+<h3>Perguntas frequentes</h3>
+<details><summary>Kira substitui advogado(a)?</summary><p>Não. É uma ferramenta de apoio. Decisões são do(a) profissional responsável.</p></details>
+<details><summary>Meus dados são sigilosos?</summary><p>Sim. Usamos Firebase para controle de acesso, armazenamento seguro e logs mínimos.</p></details>
+<details><summary>Como regularizo a assinatura?</summary><p>Use o botão Assinar (Stripe) ou fale com atendimento pelo WhatsApp.</p></details>
+</section>
+</main>
+
+
+<footer class="container footer">
+<div>
+<strong>Kira</strong> · Inteligência Jurídica de Apoio — © <span id="year"></span>
+</div>
+<nav>
+<a href="#" id="linkTermos">Termos</a>
+<a href="#" id="linkPriv">Privacidade</a>
+</nav>
+</footer>
+
+
+<!-- Firebase SDKs via CDN -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-storage-compat.js"></script>
+
+
+<script src="app.js"></script>
+</body>
+</html>
