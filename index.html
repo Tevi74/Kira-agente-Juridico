@@ -9,15 +9,89 @@
   <link rel="icon" href="public/avatar-kira.png">
 
   <!-- CSS principal -->
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 
+<header class="container header">
+  <div class="brand">
+    <img src="public/avatar-kira.png" class="avatar" alt="Avatar Kira">
+    <div>
+      <h1 class="logo">Kira</h1>
+      <p class="tag">Inteligência Artificial Jurídica de Alta Performance para Advogados</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="#planos">Planos</a>
+    <a href="#app">Área do usuário</a>
+    <a href="#faq">FAQ</a>
+    <button class="btn btn-ghost" id="btnAbrirLogin">Entrar</button>
+    <a class="btn btn-primary" href="https://buy.stripe.com/bJebJ1cv88A5aKM7ZKaAw03">Assinar R$ 59,90/mês</a>
+  </nav>
+</header>
+
 <main>
-  <section class="container hero">
-    <h2>Converse com a Kira e gere insights.</h2>
+  <!-- Hero -->
+  <section class="hero container">
+    <div class="hero-copy">
+      <h2>Kira — IA jurídica de alta performance.</h2>
+      <p>Analise petições, contratos e provas com precisão; receba resumos técnicos, pontos críticos e referências legais em segundos.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://buy.stripe.com/bJebJ1cv88A5aKM7ZKaAw03">Assinar agora</a>
+        <button class="btn" id="btnAbrirLogin2">Já sou cliente</button>
+      </div>
+      <div class="badges">
+        <span class="chip">Navy & Silver</span>
+        <span class="chip">LGPD</span>
+        <span class="chip">OAB — uso de apoio</span>
+      </div>
+    </div>
+
+    <!-- Cartão de Login -->
+    <div class="hero-card card">
+      <h3>Entrar</h3>
+      <form id="loginForm" class="form">
+        <label>E-mail</label>
+        <input type="email" id="email" placeholder="seu@email.com" required>
+        <label>Senha</label>
+        <div class="passrow">
+          <input type="password" id="password" placeholder="••••••••" required>
+          <button type="button" class="link sm" id="togglePass">ver</button>
+        </div>
+        <div class="row between">
+          <label class="remember"><input type="checkbox" id="remember"> lembrar acesso</label>
+          <button type="button" class="link" id="btnReset">esqueci a senha</button>
+        </div>
+        <button type="submit" class="btn btn-primary w-full">Entrar</button>
+        <button type="button" class="btn w-full" id="btnCriarConta">Criar conta</button>
+        <p class="hint small">Primeiro acesso? Crie sua conta e ative a assinatura.</p>
+      </form>
+    </div>
   </section>
 
+  <!-- Planos -->
+  <section id="planos" class="container grid-3">
+    <div class="card plan featured">
+      <h4>Kira Mensal</h4>
+      <p class="price"><strong>R$ 59,90</strong> / mês</p>
+      <ul class="checklist">
+        <li>Upload de documentos</li>
+        <li>Chat com contexto</li>
+        <li>Histórico por usuário</li>
+      </ul>
+      <a class="btn btn-primary w-full" href="https://buy.stripe.com/bJebJ1cv88A5aKM7ZKaAw03">Assinar</a>
+    </div>
+    <div class="card plan">
+      <h4>Compliance</h4>
+      <p>Uso de apoio. Sem captação indevida. Privacidade e logs mínimos.</p>
+    </div>
+    <div class="card plan">
+      <h4>Suporte</h4>
+      <p>Atendimento: <a class="link" href="https://wa.me/55119945993726">WhatsApp</a></p>
+    </div>
+  </section>
+
+  <!-- App -->
   <section id="app" class="container app card">
     <div class="app-header">
       <h3>Área do usuário</h3>
@@ -32,30 +106,22 @@
         <div id="uploadsList" class="list"></div>
       </div>
       <div class="pane">
-        <h4>Chat Kira (placeholder)</h4>
+        <h4>Chat Kira</h4>
         <div id="chatBox" class="chat"></div>
         <div class="chat-input">
-          <input id="chatMsg" placeholder="Faça uma pergunta à Kira..." />
+          <textarea id="chatMsg" placeholder="Digite sua pergunta para a Kira..." rows="3"></textarea>
           <button class="btn" id="btnSend">Enviar</button>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FAQ -->
   <section id="faq" class="container">
     <h3>Perguntas frequentes</h3>
-    <details>
-      <summary>Kira substitui advogado(a)?</summary>
-      <p>Não. É uma ferramenta de apoio. Decisões são do(a) profissional responsável.</p>
-    </details>
-    <details>
-      <summary>Meus dados são sigilosos?</summary>
-      <p>Sim. Usamos Firebase para controle de acesso, armazenamento seguro e logs mínimos.</p>
-    </details>
-    <details>
-      <summary>Como regularizo a assinatura?</summary>
-      <p>Use o botão Assinar (Stripe) ou fale com atendimento pelo WhatsApp.</p>
-    </details>
+    <details><summary>Kira substitui advogado(a)?</summary><p>Não. É uma ferramenta de apoio. Decisões são do(a) profissional responsável.</p></details>
+    <details><summary>Meus dados são sigilosos?</summary><p>Sim. Usamos Firebase para controle de acesso, armazenamento seguro e logs mínimos.</p></details>
+    <details><summary>Como regularizo a assinatura?</summary><p>Use o botão Assinar (Stripe) ou fale com atendimento pelo WhatsApp.</p></details>
   </section>
 </main>
 
@@ -75,7 +141,59 @@
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-storage-compat.js"></script>
 
-<!-- App JS -->
-<script src="app.js"></script>
+<!-- App JS (seu arquivo com Firebase/Stripe/Upload/Chat) -->
+<script src="app.js?v=4"></script>
+
+<!-- Handlers do Login (UI) -->
+<script>
+  // ver/ocultar senha
+  document.getElementById('togglePass')?.addEventListener('click', () => {
+    const p = document.getElementById('password');
+    if (!p) return;
+    p.type = p.type === 'password' ? 'text' : 'password';
+  });
+
+  // rolar até o cartão de login
+  function scrollToLogin(){ document.querySelector('.hero-card')?.scrollIntoView({behavior:'smooth', block:'center'}); }
+  document.getElementById('btnAbrirLogin')?.addEventListener('click', scrollToLogin);
+  document.getElementById('btnAbrirLogin2')?.addEventListener('click', scrollToLogin);
+
+  // login com Firebase
+  document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    try{
+      const email = document.getElementById('email').value.trim();
+      const pass = document.getElementById('password').value;
+      await firebase.auth().setPersistence(
+        document.getElementById('remember').checked
+          ? firebase.auth.Auth.Persistence.LOCAL
+          : firebase.auth.Auth.Persistence.SESSION
+      );
+      await firebase.auth().signInWithEmailAndPassword(email, pass);
+      alert('Login realizado');
+    }catch(err){ alert('Erro no login: ' + (err?.message || err)); }
+  });
+
+  // criar conta
+  document.getElementById('btnCriarConta')?.addEventListener('click', async ()=>{
+    try{
+      const email = document.getElementById('email').value.trim();
+      const pass = document.getElementById('password').value;
+      await firebase.auth().createUserWithEmailAndPassword(email, pass);
+      alert('Conta criada');
+    }catch(err){ alert('Erro ao criar conta: ' + (err?.message || err)); }
+  });
+
+  // reset senha
+  document.getElementById('btnReset')?.addEventListener('click', async ()=>{
+    try{
+      const email = document.getElementById('email').value.trim();
+      if(!email) return alert('Informe seu e-mail no campo para enviar o link de recuperação.');
+      await firebase.auth().sendPasswordResetEmail(email);
+      alert('Link de redefinição enviado para ' + email);
+    }catch(err){ alert('Erro ao enviar link: ' + (err?.message || err)); }
+  });
+</script>
+
 </body>
 </html>
