@@ -5,11 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Kira · Inteligência Jurídica</title>
 
-  <!-- Ícone -->
   <link rel="icon" href="public/avatar-kira.png">
-
-  <!-- CSS principal -->
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 
@@ -22,90 +19,78 @@
     </div>
   </div>
   <nav class="nav">
-    <a href="#planos">Planos</a>
-    <a href="#app">Área do usuário</a>
-    <a href="#faq">FAQ</a>
-    <button class="btn btn-ghost" id="btnAbrirLogin">Entrar</button>
-    <a class="btn btn-primary" href="https://buy.stripe.com/bJebJ1cv88A5aKM7ZKaAw03">Assinar R$ 59,90/mês</a>
+    <button class="btn btn-ghost" data-tab="assinar">Assinar</button>
+    <button class="btn btn-ghost" data-tab="entrar">Entrar</button>
+    <button class="btn btn-primary" data-tab="kira">Kira</button>
   </nav>
 </header>
 
-<main>
-  <!-- Hero -->
-  <section class="hero container">
-    <div class="hero-copy">
-      <h2>Kira — IA jurídica de alta performance.</h2>
-      <p>Analise petições, contratos e provas com precisão; receba resumos técnicos, pontos críticos e referências legais em segundos.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="https://buy.stripe.com/bJebJ1cv88A5aKM7ZKaAw03">Assinar agora</a>
-        <button class="btn" id="btnAbrirLogin2">Já sou cliente</button>
-      </div>
-      <div class="badges">
-        <span class="chip">Navy & Silver</span>
-        <span class="chip">LGPD</span>
-        <span class="chip">OAB — uso de apoio</span>
-      </div>
-    </div>
+<main class="container">
+  <!-- TAB BAR -->
+  <div class="tabs">
+    <button class="tab active" data-tab="assinar">Assinar</button>
+    <button class="tab" data-tab="entrar">Entrar</button>
+    <button class="tab" data-tab="kira">Kira</button>
+  </div>
 
-    <!-- Cartão de Login -->
-    <div class="hero-card card">
-      <h3>Entrar</h3>
-      <form id="loginForm" class="form">
-        <label>E-mail</label>
-        <input type="email" id="email" placeholder="seu@email.com" required>
-        <label>Senha</label>
-        <div class="passrow">
-          <input type="password" id="password" placeholder="••••••••" required>
-          <button type="button" class="link sm" id="togglePass">ver</button>
-        </div>
-        <div class="row between">
-          <label class="remember"><input type="checkbox" id="remember"> lembrar acesso</label>
-          <button type="button" class="link" id="btnReset">esqueci a senha</button>
-        </div>
-        <button type="submit" class="btn btn-primary w-full">Entrar</button>
-        <button type="button" class="btn w-full" id="btnCriarConta">Criar conta</button>
-        <p class="hint small">Primeiro acesso? Crie sua conta e ative a assinatura.</p>
-      </form>
+  <!-- PAINEL: ASSINAR -->
+  <section id="pane-assinar" class="pane card show">
+    <div class="grid-2">
+      <div>
+        <h2>Kira — IA jurídica de alta performance</h2>
+        <p>Analise petições, contratos e provas com precisão; receba resumos técnicos, pontos críticos e referências legais.</p>
+        <ul class="checklist">
+          <li>Upload de documentos (PDF, DOCX, Imagens)</li>
+          <li>Chat com contexto e histórico por usuário</li>
+          <li>LGPD e uso de apoio ético-profissional</li>
+        </ul>
+      </div>
+      <div class="card plan featured">
+        <h3>Plano Mensal</h3>
+        <p class="price"><strong>R$ 59,90</strong> / mês</p>
+        <a class="btn btn-primary w-full" href="https://buy.stripe.com/bJebJ1cv88A5aKM7ZKaAw03">Assinar agora</a>
+        <p class="hint small">Pagamento via Stripe. Suporte: <a class="link" href="https://wa.me/55119945993726">WhatsApp</a></p>
+      </div>
     </div>
   </section>
 
-  <!-- Planos -->
-  <section id="planos" class="container grid-3">
-    <div class="card plan featured">
-      <h4>Kira Mensal</h4>
-      <p class="price"><strong>R$ 59,90</strong> / mês</p>
-      <ul class="checklist">
-        <li>Upload de documentos</li>
-        <li>Chat com contexto</li>
-        <li>Histórico por usuário</li>
-      </ul>
-      <a class="btn btn-primary w-full" href="https://buy.stripe.com/bJebJ1cv88A5aKM7ZKaAw03">Assinar</a>
-    </div>
-    <div class="card plan">
-      <h4>Compliance</h4>
-      <p>Uso de apoio. Sem captação indevida. Privacidade e logs mínimos.</p>
-    </div>
-    <div class="card plan">
-      <h4>Suporte</h4>
-      <p>Atendimento: <a class="link" href="https://wa.me/55119945993726">WhatsApp</a></p>
-    </div>
+  <!-- PAINEL: ENTRAR -->
+  <section id="pane-entrar" class="pane card">
+    <h2>Entrar</h2>
+    <form id="loginForm" class="form narrow">
+      <label>E-mail</label>
+      <input type="email" id="email" placeholder="seu@email.com" required>
+      <label>Senha</label>
+      <div class="passrow">
+        <input type="password" id="password" placeholder="••••••••" required>
+        <button type="button" class="link sm" id="togglePass">ver</button>
+      </div>
+      <div class="row between">
+        <label class="remember"><input type="checkbox" id="remember"> lembrar acesso</label>
+        <button type="button" class="link" id="btnReset">esqueci a senha</button>
+      </div>
+      <button type="submit" class="btn btn-primary w-full">Entrar</button>
+      <button type="button" class="btn w-full" id="btnCriarConta">Criar conta</button>
+    </form>
   </section>
 
-  <!-- App -->
-  <section id="app" class="container app card">
+  <!-- PAINEL: KIRA (APP) -->
+  <section id="pane-kira" class="pane card">
     <div class="app-header">
-      <h3>Área do usuário</h3>
-      <span id="statusAssinatura" class="status badge">Offline</span>
+      <h2>Área do usuário</h2>
+      <span id="statusAssinatura" class="status badge">offline</span>
     </div>
+
     <div class="app-grid">
-      <div class="pane">
+      <div class="pane inner">
         <h4>Upload de documentos</h4>
         <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" />
         <button class="btn" id="btnUpload">Enviar</button>
         <p class="hint">Permitidos: PDF, DOC/DOCX, imagens. Máx 10MB por arquivo.</p>
         <div id="uploadsList" class="list"></div>
       </div>
-      <div class="pane">
+
+      <div class="pane inner">
         <h4>Chat Kira</h4>
         <div id="chatBox" class="chat"></div>
         <div class="chat-input">
@@ -114,85 +99,57 @@
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="container">
-    <h3>Perguntas frequentes</h3>
-    <details><summary>Kira substitui advogado(a)?</summary><p>Não. É uma ferramenta de apoio. Decisões são do(a) profissional responsável.</p></details>
-    <details><summary>Meus dados são sigilosos?</summary><p>Sim. Usamos Firebase para controle de acesso, armazenamento seguro e logs mínimos.</p></details>
-    <details><summary>Como regularizo a assinatura?</summary><p>Use o botão Assinar (Stripe) ou fale com atendimento pelo WhatsApp.</p></details>
+    <div class="faq">
+      <details><summary>Kira substitui advogado(a)?</summary><p>Não. É uma ferramenta de apoio. Decisões são do(a) profissional responsável.</p></details>
+      <details><summary>Meus dados são sigilosos?</summary><p>Sim. Controle de acesso, armazenamento seguro e logs mínimos.</p></details>
+      <details><summary>Como regularizo a assinatura?</summary><p>Use o botão Assinar (Stripe) ou fale com atendimento pelo WhatsApp.</p></details>
+    </div>
   </section>
 </main>
 
 <footer class="container footer">
-  <div>
-    <strong>Kira</strong> · Inteligência Jurídica de Apoio — © <span id="year"></span>
-  </div>
-  <nav>
-    <a href="#" id="linkTermos">Termos</a>
-    <a href="#" id="linkPriv">Privacidade</a>
-  </nav>
+  <div><strong>Kira</strong> · Inteligência Jurídica de Apoio — © <span id="year"></span></div>
+  <nav><a href="#" id="linkTermos">Termos</a> · <a href="#" id="linkPriv">Privacidade</a></nav>
 </footer>
 
-<!-- Firebase SDKs via CDN -->
+<!-- Firebase SDKs -->
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-storage-compat.js"></script>
+script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-storage-compat.js"></script>
 
-<!-- App JS (seu arquivo com Firebase/Stripe/Upload/Chat) -->
-<script src="app.js?v=4"></script>
+<!-- App -->
+<script src="app.js?v=5"></script>
 
-<!-- Handlers do Login (UI) -->
+<!-- Tabs & pequenos handlers de UI (não duplicam o app.js) -->
 <script>
+  // Tabs
+  const tabs = document.querySelectorAll('.tab, .nav [data-tab]');
+  const panes = {
+    assinar: document.getElementById('pane-assinar'),
+    entrar:  document.getElementById('pane-entrar'),
+    kira:    document.getElementById('pane-kira'),
+  };
+  function showTab(name){
+    document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.tab===name));
+    Object.entries(panes).forEach(([k,el])=> el.classList.toggle('show', k===name));
+    // foco útil
+    if(name==='entrar') document.getElementById('email')?.focus();
+    if(name==='kira')   document.getElementById('chatMsg')?.focus();
+  }
+  tabs.forEach(t=> t.addEventListener('click', ()=> showTab(t.dataset.tab)));
+  // padrão: abrir ASSINAR
+  showTab('assinar');
+
   // ver/ocultar senha
   document.getElementById('togglePass')?.addEventListener('click', () => {
-    const p = document.getElementById('password');
-    if (!p) return;
+    const p = document.getElementById('password'); if(!p) return;
     p.type = p.type === 'password' ? 'text' : 'password';
   });
 
-  // rolar até o cartão de login
-  function scrollToLogin(){ document.querySelector('.hero-card')?.scrollIntoView({behavior:'smooth', block:'center'}); }
-  document.getElementById('btnAbrirLogin')?.addEventListener('click', scrollToLogin);
-  document.getElementById('btnAbrirLogin2')?.addEventListener('click', scrollToLogin);
-
-  // login com Firebase
-  document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    try{
-      const email = document.getElementById('email').value.trim();
-      const pass = document.getElementById('password').value;
-      await firebase.auth().setPersistence(
-        document.getElementById('remember').checked
-          ? firebase.auth.Auth.Persistence.LOCAL
-          : firebase.auth.Auth.Persistence.SESSION
-      );
-      await firebase.auth().signInWithEmailAndPassword(email, pass);
-      alert('Login realizado');
-    }catch(err){ alert('Erro no login: ' + (err?.message || err)); }
-  });
-
-  // criar conta
-  document.getElementById('btnCriarConta')?.addEventListener('click', async ()=>{
-    try{
-      const email = document.getElementById('email').value.trim();
-      const pass = document.getElementById('password').value;
-      await firebase.auth().createUserWithEmailAndPassword(email, pass);
-      alert('Conta criada');
-    }catch(err){ alert('Erro ao criar conta: ' + (err?.message || err)); }
-  });
-
-  // reset senha
-  document.getElementById('btnReset')?.addEventListener('click', async ()=>{
-    try{
-      const email = document.getElementById('email').value.trim();
-      if(!email) return alert('Informe seu e-mail no campo para enviar o link de recuperação.');
-      await firebase.auth().sendPasswordResetEmail(email);
-      alert('Link de redefinição enviado para ' + email);
-    }catch(err){ alert('Erro ao enviar link: ' + (err?.message || err)); }
-  });
+  // ano no rodapé
+  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
 </body>
